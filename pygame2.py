@@ -1,18 +1,20 @@
-# Write your code here :-)
 # First PyGame program
 
 # Import the PyGame library
-import random
 
+import random
 import pygame
 pygame.init()
 
+# choose random numbers to control initial movement
 dx = random.randint(10,40)
 dy = random.randint(5,20)
-print(dx)
-print(dy)
-x=250
-y=250
+
+#set initial position of ball
+ballx = 250
+bally = 250
+
+# set screen size
 screenx = 500
 screeny = 500
 
@@ -31,30 +33,30 @@ while running:
     #Fill the background screen with white
     screen.fill((255,255,255))
 
+
     # Draw a solid blue circle in the center of the screen
-    pygame.draw.circle(screen, (0,0,255), (x,y), 10)
+    pygame.draw.circle(screen, (0,0,255), (ballx, bally), 10)
+
+    ballx = ballx + dx
+    if ballx >= screenx:
+        dx = dx*(-1)
+        ballx = screenx - 5
+    elif ballx <= 0:
+        dx = dx*(-1)
+        ballx = 5
+
+    bally = bally + dy
+    if bally >= screeny:
+        dy = dy*(-1)
+        bally = screeny - 5
+    elif bally <=0:
+        dy = dy*(-1)
+        bally = 5
 
     #Flip the display
     pygame.display.flip()
 
-    x = x+dx
-    if x >= screenx:
-        dx = dx*(-1)
-        x = screenx - 5
-    if x <= 0:
-        dx = dx*(-1)
-        x = 5
 
-    y = y+dy
-    if y >= screeny:
-        dy = dy*(-1)
-        y = screeny - 5
-    if y <= 0:
-        dy = dy*(-1)
-        y = 5
-
-    print(x)
-    print(y)
-    print("  ")
 # Done! Time to quit!
 pygame.quit()
+
