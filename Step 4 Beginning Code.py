@@ -36,8 +36,8 @@ while running:
         elif event.type == QUIT:
             running = False
 
-    # Fill the screen with black
-    screen.fill((0, 0, 0))
+    # Fill the screen with white
+    screen.fill((255, 255, 255))
 
     # Update the display
     pygame.display.flip()
