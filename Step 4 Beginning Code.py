@@ -52,8 +52,8 @@ while running:
         elif event.type == QUIT:
             running = False
 
-    # Fill the screen with black
-    screen.fill((0, 0, 0))
+    # Fill the screen with white
+    screen.fill((255, 255, 255))
 
     # Draw the player on the screen
     screen.blit(player.surf, (SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
